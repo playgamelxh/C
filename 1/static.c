@@ -16,7 +16,8 @@ void fun2(void)
 
 int main()
 {
-	for(int k=0;k<10;k++)
+	int k;
+	for(k=0;k<10;k++)
 	{
 		fun1();
 		fun2();
