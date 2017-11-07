@@ -2,6 +2,7 @@
 #include <string.h>
 #include <malloc.h>
 
+//定义队列的节点
 struct node
 {
 	int l;
@@ -9,20 +10,24 @@ struct node
 	struct node * next;
 };
 
+//定义队列
 struct queue
 {
-	struct node * head;
-	struct node * end;
+	struct node * head;	//队列头
+	struct node * end;	//队列尾
 };
 
+//初始化队列
 void initQueue(struct queue * queue)
 {
 	queue->head = NULL;
 	queue->end = NULL;
 }
 
+//入队列
 void push(struct queue * queue, struct node * node)
 {
+	//如果队列为空
 	if (NULL == queue->head) {
 		queue->head = node;
 		queue->end = node;
@@ -32,6 +37,7 @@ void push(struct queue * queue, struct node * node)
 	}
 }
 
+//出队列
 struct node *  pull(struct queue * queue)
 {
 	if (NULL != queue->head->next) {
