@@ -23,6 +23,14 @@ int main(int argc, int * argv[])
 	student2->score = 100;
 	free(student2->name);
 	free(student2);
+	
+	stu.name = "abcdefg";
+	stu.score = 100;
+
+	pstu = (struct student *)malloc(sizeof(struct student));
+	//pstu->name = (char *)malloc(sizeof(char)*20);
+	pstu->name = "dfedsdf";
+	pstu->score = 200;
 
 	return 0;
 }

@@ -48,8 +48,8 @@ struct node *  pull(struct queue * queue)
 
 int main(int argc, char * argv[])
 {
-	struct queue q;
-	initQueue(&q);
+	struct queue *q = (struct queue*)malloc(sizeof(struct queue));
+	initQueue(q);
 
 	int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9 , 10};
 	int i = 0;
@@ -59,10 +59,10 @@ int main(int argc, char * argv[])
 		n->l = a[i];
 		n->c = a[i];
 		n->next = NULL;
-		push(&q, n);
+		push(q, n);
 	}
-	while(NULL != q.head->next) {
-		printf("%d %d\n", q.head->l, q.head->c);
-		q.head = q.head->next;
+	while(NULL != q->head->next) {
+		printf("%d %d\n", q->head->l, q->head->c);
+		q->head = q->head->next;
 	}
 }
