@@ -17,6 +17,7 @@ void initArr(int arr[], int length)
 	printfArr(arr, length);
 }
 
+//print arr
 void printfArr(int arr[], int length)
 {
 	printf("arr is:");
@@ -27,14 +28,13 @@ void printfArr(int arr[], int length)
 	printf("\n");
 }
 
-//
+//调整堆
 void HeapAdjust(int arr[], int current, int length)
 {
 	int temp = -1;
 	int left = 2 * current;
 	int right = left + 1;
-	//choose left or right
-
+	//choose left or right  节点左右子节点先比较，判断小的和节点比较
 	if (right<=length && arr[right]<arr[left]) {
 		left = right;
 	}
@@ -43,7 +43,9 @@ void HeapAdjust(int arr[], int current, int length)
 		temp = arr[current];
 		arr[current] = arr[left];
 		arr[left] = temp;
+		//处理调换后的子节点
 		HeapAdjust(arr, left, length);
+		//处理调换后节点 上一个父节点
 		if (current > 1) {
 			int next = (current % 2 == 0) ? (current/2) : (current - 1)/2 ;
 			HeapAdjust(arr, next, length);
@@ -52,7 +54,7 @@ void HeapAdjust(int arr[], int current, int length)
 	//printfArr(arr, length);
 }
 
-
+//堆排序
 void HeapSort(int arr[], int length)
 {
 	int i = 1;
@@ -62,6 +64,7 @@ void HeapSort(int arr[], int length)
 	//printfArr(arr, length);
 }
 
+//堆排序输出
 void HeapOut(int arr[], int length)
 {
 	if (length > 1) {
@@ -79,11 +82,11 @@ void HeapOut(int arr[], int length)
 int main(int argc, char * argv[])
 {
 	int num[20];
-	
+	//初始化
 	initArr(num, 20);
-	
+	//堆排序
 	HeapSort(num, 20);	
-	
+	//输出堆排序
 	HeapOut(num, 20);
 	
 	return 0;
