@@ -2,6 +2,7 @@
 
 //输入整形数组
 void print_r(int a[], int len);
+
 //选择排序
 void chose_sort(int a[], int len);
 
