@@ -3,16 +3,22 @@
 
 void insert_sort(int src[], int dest[], int len);
 
+void insert_sort1(int arr[], int len);
+
 int main(int argc, char *argv[])
 {
 	int a[100];
 	int len = input_num(a);
 	print_r(a, len);
 
-	printf("插入排序后：");
+	printf("O(n)空间申请的插入排序后：");
 	int b[100];
 	insert_sort(a, b, len);
 	print_r(b, len);
+
+	printf("O(1)空间申请的插入排序");	
+	insert_sort1(a, len);
+	print_r(a, len);	
 
 	return 0;
 }
@@ -44,3 +50,21 @@ void insert_sort(int src[], int desc[], int len)
 		}
 	}	
 }
+
+void insert_sort1(int arr[], int len)
+{
+	for(int i=1; i<len; i++) {
+		for(int j=i-1; j>=0; j--) {
+			if (arr[j+1] < arr[j]) {
+				arr[j+1] = arr[j+1]^arr[j];
+				arr[j] = arr[j+1]^arr[j];
+				arr[j+1] = arr[j+1]^arr[j];
+			} else {
+				break;
+			}
+		}	
+	}
+}
+
+
+
